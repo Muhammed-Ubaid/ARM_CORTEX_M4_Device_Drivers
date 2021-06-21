@@ -116,6 +116,9 @@ void GPIO_PeriClockControl(GPIO_RegDef_t *pGPIOx, uint8_t EnOrDi)
 */
 void GPIO_Init(GPIO_Handle_t* pGPIOHandle)
 {
+
+	GPIO_PeriClockControl(pGPIOHandle->pGPIOx,ENABLE);
+
 	uint32_t temp = 0;
 	//configure GPIO pin mode
 	if((pGPIOHandle->GPIO_PinConfig.GPIO_PinMode == GPIO_MODE_ANALOG)||(pGPIOHandle->GPIO_PinConfig.GPIO_PinMode < GPIO_MODE_ALTFN)) //mode is non interrupt
